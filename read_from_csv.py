@@ -3,28 +3,65 @@ import requests
 
 from WikiComponents import Article
 
-base_url = "https://en.wikipedia.org/w/"
+
+class WikiAPI:
+    __base_url = "https://en.wikipedia.org/w/"
+
+    @staticmethod
+    def get(url: str, params=None):
+        if params is None:
+            params = {}
+        if 'format' not in params:
+            params['format'] = 'json'
+        if url.startswith('api.php'):
+            url = WikiAPI.__base_url + url
+
+        print('[i] requesting "{}" with param {}'.format(url, params))
+        req = requests.get(url, params=params)
+        return req.json()
+
+
+def get_first_query_page(resp: dict) -> dict:
+    pg = resp['query']['pages']
+    if len(pg) != 1:
+        print("[W] len(pg) != 1")
+    k = list(pg.keys())[0]
+    return pg[k]
 
 
 def get_contributors(article_id):
     # todo Use combined query makes more efficient.
-    _url = "api.php?action=query&titles={article_id}&prop=contributors&format=json"
-    u = (base_url + _url).format(article_id=article_id)
-    req = requests.get(u)
-    req = req.json()
-    pg = req['query']['pages']
-    if len(pg) != 1:
-        print("[W] len(pg) != 1")
-    first = list(pg.keys())[0]
-    first = pg[first]
+    _url = "api.php?action=query&titles={article_id}&prop=contributors"
+    resp = WikiAPI.get(_url.format(article_id=article_id))
+    first = get_first_query_page(resp)
     n_contributers_a = first['anoncontributors']
     n_contributers = len(first['contributors'])
     return {'anoncontributors': n_contributers_a, 'contributors': n_contributers}
 
 
-def process_article(article_id: str):
+def get_revision(article_id):
+    _url = 'api.php?action=query&prop=revisions&titles={article_id}' \
+           '&rvprop=timestamp|user|userid&rvlimit=max'
+    u = _url.format(article_id=article_id)
+
+    def proc(req: dict):
+        req
+
+    resp = WikiAPI.get(u)
+    proc(resp)
+
+    while resp.get('continue') and resp['continue'].get('rvcontinue'):
+        resp = WikiAPI.get(u, {'rvcontinue': resp['continue']['rvcontinue']})
+        proc(resp)
+
+
+def process_article(article: Article):
+    print('\n', '-' * 6)
+    print('processing "{}"'.format(article.id_))
+
     # get unique contributor
-    get_contributors(article_id)
+    uniq_con = get_contributors(article.id_)
+    print(uniq_con)
 
 
 def read_csv(csv_path: str, handler, contains_header=True):
