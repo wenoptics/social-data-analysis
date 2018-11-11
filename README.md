@@ -25,3 +25,12 @@ they are outliers
 
 3. Prepare a report to include all your results and a paragraph of concluding remarks. Which one of your hypotheses were 
 supported by the data and which one of the above factors relates most to the quality of the articles?
+
+
+# Task
+
+ - [x] Total number of unique editors
+ - [ ] Number of edits per editors
+ - [ ] Number of talk-page posts
+ - [ ] Number of editors posting on talk-pages
+ - [ ] Frequency of edits (time between edits)
