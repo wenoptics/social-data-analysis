@@ -1,5 +1,6 @@
 import csv
 import requests
+from bs4 import BeautifulSoup, Tag
 
 from WikiComponents import Article
 
@@ -19,6 +20,16 @@ class WikiAPI:
         print('[i] requesting "{}" with param {}'.format(url, params))
         req = requests.get(url, params=params)
         return req.json()
+
+
+class WikiBrowser:
+    __url_article_main = 'https://en.wikipedia.org/wiki/{id_}'
+    __url_article_talk = 'https://en.wikipedia.org/wiki/Talk:{id_}'
+
+    @staticmethod
+    def get_talk_page(article_id: str) -> Tag:
+        resp = requests.get(WikiBrowser.__url_article_talk.format(id_=article_id))
+        return BeautifulSoup(resp.content, 'html.parser')
 
 
 def get_first_query_page(resp: dict) -> dict:
@@ -47,13 +58,6 @@ def get_revision(article_id):
     revs = {}
 
     def proc(resp: dict):
-        first = get_first_query_page(resp)
-        for rv in first['revisions']:
-            uid = rv['userid']
-            if uid in revs:
-                revs[uid].append(rv)
-            else:
-                revs[uid] = [rv]
         """
         "revisions": [
         {
@@ -68,6 +72,13 @@ def get_revision(article_id):
             "timestamp": "2009-07-30T15:35:49Z"
         }
         """
+        first = get_first_query_page(resp)
+        for rv in first['revisions']:
+            uid = rv['userid']
+            if uid in revs:
+                revs[uid].append(rv)
+            else:
+                revs[uid] = [rv]
 
     resp = WikiAPI.get(u)
     proc(resp)
@@ -79,19 +90,48 @@ def get_revision(article_id):
     return revs
 
 
+def analysis_revision_info(dict_rev_info: dict):
+    # Number of edits per editors
+    pass
+
+    # Frequency of edits (time between edits)
+    freq_overall = 0
+    for uid, revisions in dict_rev_info.items():
+        pass
+
+
+def count_talk_posts(article_id):
+    html_root = WikiBrowser.get_talk_page(article_id)
+    return len(html_root.find('div', id='bodyContent').find_all('h2'))
+
+
+def num_editor_talk(article_id):
+    # Use an API provided by XTools Wiki-Project
+    _url = 'https://xtools.wmflabs.org/api/page/articleinfo/en.wikipedia.org/Talk:{article_id}'
+    resp = requests.get(_url.format(article_id=article_id)).json()
+    return resp['editors']
+
+
 def process_article(article: Article):
     print('\n', '-' * 6)
     print('processing "{}"'.format(article.id_))
 
     # get unique contributor
     uniq_con = get_contributors(article.id_)
-    print(uniq_con)
+    print('unique contributor:', uniq_con)
 
     # get user revisions
     rvs = get_revision(article.id_)
+    analysis_revision_info(rvs)
     print()
 
+    # talk-page posts
+    ctp = count_talk_posts(article.id_)
+    print('talk-page posts n=', ctp)
 
+    # Number of editors posting on talk-pages
+    etp = num_editor_talk(article.id_)
+    print('talk-page editor n=', etp)
 
 
 def read_csv(csv_path: str, handler, contains_header=True):
