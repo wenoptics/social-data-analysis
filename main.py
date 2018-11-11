@@ -1,35 +1,8 @@
-import csv
+from dateutil.parser import parse as dtparse
 import requests
-from bs4 import BeautifulSoup, Tag
 
-from WikiComponents import Article
-
-
-class WikiAPI:
-    __base_url = "https://en.wikipedia.org/w/"
-
-    @staticmethod
-    def get(url: str, params=None):
-        if params is None:
-            params = {}
-        if 'format' not in params:
-            params['format'] = 'json'
-        if url.startswith('api.php'):
-            url = WikiAPI.__base_url + url
-
-        print('[i] requesting "{}" with param {}'.format(url, params))
-        req = requests.get(url, params=params)
-        return req.json()
-
-
-class WikiBrowser:
-    __url_article_main = 'https://en.wikipedia.org/wiki/{id_}'
-    __url_article_talk = 'https://en.wikipedia.org/wiki/Talk:{id_}'
-
-    @staticmethod
-    def get_talk_page(article_id: str) -> Tag:
-        resp = requests.get(WikiBrowser.__url_article_talk.format(id_=article_id))
-        return BeautifulSoup(resp.content, 'html.parser')
+from WikiComponents import Article, WikiAPI, WikiBrowser
+from helper import read_csv, calc_freq, is_bot_user
 
 
 def get_first_query_page(resp: dict) -> dict:
@@ -95,9 +68,23 @@ def analysis_revision_info(dict_rev_info: dict):
     pass
 
     # Frequency of edits (time between edits)
-    freq_overall = 0
+    overall_edit_timestamp = []
+    overall_edit_nonbot_timestamp = []
+    for editor in dict_rev_info.values():
+        is_bot = is_bot_user(editor[0]['user'], editor[0]['userid'])
+        for rv in editor:
+            ts = rv.get('timestamp')
+            ts = dtparse(ts).timestamp()
+            rv['timestamp_parsed'] = ts
+            overall_edit_timestamp.append(ts)
+            if not is_bot:
+                overall_edit_nonbot_timestamp.append(ts)
+
+    freq_overall = calc_freq(overall_edit_timestamp)
+
+    # edit freq per editor
     for uid, revisions in dict_rev_info.items():
-        pass
+        dict_rev_info['edit_freq'] = calc_freq([rv['timestamp_parsed'] for rv in revisions])
 
 
 def count_talk_posts(article_id):
@@ -132,23 +119,6 @@ def process_article(article: Article):
     # Number of editors posting on talk-pages
     etp = num_editor_talk(article.id_)
     print('talk-page editor n=', etp)
-
-
-def read_csv(csv_path: str, handler, contains_header=True):
-    """
-
-    :param csv_path:
-    :param handler: A function that takes a row-array as input
-    :param contains_header:
-    :return:
-    """
-    start_row = 1 if contains_header else 0
-    with open(csv_path) as csvfile:
-        rows = list(csv.reader(csvfile))
-        ret = []
-        for row in rows[start_row:]:
-            ret.append(handler(row))
-        return ret
 
 
 if __name__ == '__main__':

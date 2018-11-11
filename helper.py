@@ -1,3 +1,4 @@
+import csv
 from typing import List
 import requests
 from bs4 import BeautifulSoup
@@ -20,4 +21,28 @@ def get_articles_with_grade(grade='C') -> List:
     return []
 
 
-get_articles_with_grade()
+def read_csv(csv_path: str, handler, contains_header=True):
+    """
+
+    :param csv_path:
+    :param handler: A function that takes a row-array as input
+    :param contains_header:
+    :return:
+    """
+    start_row = 1 if contains_header else 0
+    with open(csv_path) as csvfile:
+        rows = list(csv.reader(csvfile))
+        ret = []
+        for row in rows[start_row:]:
+            ret.append(handler(row))
+        return ret
+
+
+def calc_freq(arr: list):
+    raise NotImplementedError()
+    return 0
+
+
+def is_bot_user(username, userid):
+    # fixme
+    return 'bot' in str.lower(username)
