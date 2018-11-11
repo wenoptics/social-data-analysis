@@ -44,8 +44,30 @@ def get_revision(article_id):
            '&rvprop=timestamp|user|userid&rvlimit=max'
     u = _url.format(article_id=article_id)
 
-    def proc(req: dict):
-        req
+    revs = {}
+
+    def proc(resp: dict):
+        first = get_first_query_page(resp)
+        for rv in first['revisions']:
+            uid = rv['userid']
+            if uid in revs:
+                revs[uid].append(rv)
+            else:
+                revs[uid] = [rv]
+        """
+        "revisions": [
+        {
+            "user": "74.96.187.144",
+            "anon": "",
+            "userid": 0,
+            "timestamp": "2009-11-22T17:04:09Z"
+        },
+        {
+            "user": "Miym",
+            "userid": 8436643,
+            "timestamp": "2009-07-30T15:35:49Z"
+        }
+        """
 
     resp = WikiAPI.get(u)
     proc(resp)
@@ -53,6 +75,8 @@ def get_revision(article_id):
     while resp.get('continue') and resp['continue'].get('rvcontinue'):
         resp = WikiAPI.get(u, {'rvcontinue': resp['continue']['rvcontinue']})
         proc(resp)
+
+    return revs
 
 
 def process_article(article: Article):
@@ -62,6 +86,12 @@ def process_article(article: Article):
     # get unique contributor
     uniq_con = get_contributors(article.id_)
     print(uniq_con)
+
+    # get user revisions
+    rvs = get_revision(article.id_)
+    print()
+
+
 
 
 def read_csv(csv_path: str, handler, contains_header=True):
