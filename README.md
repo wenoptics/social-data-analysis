@@ -27,10 +27,10 @@ they are outliers
 supported by the data and which one of the above factors relates most to the quality of the articles?
 
 
-# Task
+# Todo
 
  - [x] Total number of unique editors
  - [ ] Number of edits per editors
- - [ ] Number of talk-page posts
- - [ ] Number of editors posting on talk-pages
+ - [x] Number of talk-page posts
+ - [x] Number of editors posting on talk-pages
  - [ ] Frequency of edits (time between edits)
