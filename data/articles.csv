@@ -1,0 +1,403 @@
+﻿#,Article,Quality
+1,Parallel computing,FA
+2,Manchester Mark 1,FA
+3,NeXT,FA
+4,Delrina,FA
+5,Folding@home,FA
+6,Macintosh Classic,FA
+7,Manchester Baby,FA
+8,Microsoft Security Essentials,FA
+9,4chan,FA
+10,Acid2,FA
+11,Rosetta@home,FA
+12,The Million Dollar Homepage,FA
+13,Heartbleed,A
+14,Anonymous (group),A
+15,Alan Turing,GA
+16,Bill Gates,GA
+17,Fortinet,GA
+18,John von Neumann,GA
+19,COBOL,GA
+20,History of Microsoft,GA
+21,History of artificial intelligence,GA
+22,IPad,GA
+23,IPad (3rd generation),GA
+24,IPad (4th generation),GA
+25,IPhone 5S,GA
+26,Jeff Bezos,GA
+27,MacBook Pro,GA
+28,Microsoft Office XP,GA
+29,Titan (supercomputer),GA
+30,Windows 10,GA
+31,Windows XP,GA
+32,AVG PC TuneUp,GA
+33,Alan Kotok,GA
+34,Apple Inc. litigation,GA
+35,Apple TV,GA
+36,Ars Technica,GA
+37,Book embedding,GA
+38,Digital forensics,GA
+39,DragonFly BSD,GA
+40,Forth (programming language),GA
+41,FreeBSD,GA
+42,George Armitage Miller,GA
+43,HTC Dream,GA
+44,IPad (1st generation),GA
+45,IPad 2,GA
+46,IPhone 5,GA
+47,Itanium,GA
+48,Linear probing,GA
+49,MacBook,GA
+50,MacPaint,GA
+51,Mac Pro,GA
+52,Micro Instrumentation and Telemetry Systems,GA
+53,Movieland,GA
+54,Norton Internet Security,GA
+55,Null (SQL),GA
+56,PHP,GA
+57,Perl,GA
+58,Plan 9 from Bell Labs,GA
+59,Python (programming language),GA
+60,Qualcomm Snapdragon,GA
+61,Randy Pausch,GA
+62,ReactOS,GA
+63,Richard Hamming,GA
+64,Sergey Brin,GA
+65,Slashdot,GA
+66,Steam (software),GA
+67,System 6,GA
+68,Twitter,GA
+69,Watson (computer),GA
+70,WinFS,GA
+71,Windows 8.1,GA
+72,Windows Mobile,GA
+73,Write amplification,GA
+74,ZX81,GA
+75,AACS encryption key controversy,GA
+76,Allocator (C++),GA
+77,Arena (web browser),GA
+78,Automated Tropical Cyclone Forecasting System,GA
+79,BackupHDDVD,GA
+80,BitLocker,GA
+81,Bomis,GA
+82,Cathode-ray tube amusement device,GA
+83,Code42,GA
+84,Conservapedia,GA
+85,DNS Certification Authority Authorization,GA
+86,Debian,GA
+87,Decltype,GA
+88,Development of Duke Nukem Forever,GA
+89,Discipline Global Mobile,GA
+90,Fastra II,GA
+91,Free Speech Flag,GA
+92,Fucking Machines,GA
+93,GameCube online functionality,GA
+94,Google Earth,GA
+95,HDMI,GA
+96,HTC First,GA
+97,HTC One (M7),GA
+98,HTC One A9,GA
+99,Halo.Bungie.Org,GA
+100,Hightail,GA
+101,History of computing in the Soviet Union,GA
+102,ILoo,GA
+103,IPhone 4S,GA
+104,Integer sorting,GA
+105,JMP (statistical software),GA
+106,Jeremy Stoppelman,GA
+107,Juniper MX-Series,GA
+108,Juniper Networks,GA
+109,Munchausen by Internet,GA
+110,Mya (program),GA
+111,Nimrod (computing),GA
+112,ODB++,GA
+113,"On the Internet, nobody knows you're a dog",GA
+114,OverClocked ReMix,GA
+115,Paxata,GA
+116,PokerTracker,GA
+117,Polygon (website),GA
+118,Qapital,GA
+119,Ransomware,GA
+120,Rare (company),GA
+121,Razer Naga,GA
+122,Reversible cellular automaton,GA
+123,Rise of Nations: Thrones and Patriots,GA
+124,Ronald Fedkiw,GA
+125,SAS (software),GA
+126,Salesforce Marketing Cloud,GA
+127,Smartsheet,GA
+128,Tapad,GA
+129,The Daily Mash,GA
+130,The Signpost,GA
+131,Valor por Tamaulipas,GA
+132,Viralheat,GA
+133,Whedonesque.com,GA
+134,Windows Push Notification Service,GA
+135,Windows RT,GA
+136,Xgrid,GA
+137,Yelp,GA
+138,Zenbook,GA
+139,Cortana,GA
+140,Cray-3,GA
+141,Crispy Gamer,GA
+142,Dolphin (emulator),GA
+143,Eugene Kaspersky,GA
+144,GNOME Web,GA
+145,IOS 10,GA
+146,Jean Bartik,GA
+147,Operation Rainfall,GA
+148,Row hammer,GA
+149,Star Wars Jedi Knight: Jedi Academy,GA
+150,Symantec Endpoint Protection,GA
+151,The Plot to Hack America,GA
+152,Tom Kilburn,GA
+153,ACM SIGHPC,C
+154,ACM SIGOPS,C
+155,Alan Kay,C
+156,Automata theory,C
+157,Bit,C
+158,Byte,C
+159,CMOS,C
+160,Cache (computing),C
+161,Cloud computing,C
+162,Command-line interface,C
+163,Compiler,C
+164,Computational complexity,C
+165,Computer,C
+166,Computer architecture,C
+167,Computer engineering,C
+168,Computer programming,C
+169,Computer security,C
+170,Computer virus,C
+171,Computing,C
+172,"Cut, copy, and paste",C
+173,Data center,C
+174,Data compression,C
+175,Dell Technologies,C
+176,Ed Roberts (computer engineer),C
+177,Email,C
+178,Ethernet,C
+179,Evaluation strategy,C
+180,File system,C
+181,GNU,C
+182,Google,C
+183,Graphical user interface,C
+184,Graphics processing unit,C
+185,History of video games,C
+186,IBM PC compatible,C
+187,IBM System/360,C
+188,IOS,C
+189,IPv4,C
+190,Information technology,C
+191,Internet,C
+192,Internet Protocol,C
+193,Laptop,C
+194,Mainframe computer,C
+195,Microprocessor,C
+196,Network administrator,C
+197,Network interface controller,C
+198,OSI model,C
+199,Outline of computers,C
+200,Outline of computing,C
+201,Personal computer,C
+202,Programmer,C
+203,Real-time computing,C
+204,Router (computing),C
+205,Routing,C
+206,SIGAI,C
+207,Smartphone,C
+208,Software,C
+209,Software industry,C
+210,System administrator,C
+211,Theory of computation,C
+212,Tim Berners-Lee,C
+213,User interface,C
+214,Website,C
+215,World Wide Web,C
+216,2016 Dyn cyberattack,C
+217,3dfx Interactive,C
+218,64-bit computing,C
+219,ARM big.LITTLE,C
+220,ARPANET,C
+221,ASCII,C
+222,Aakash (tablet),C
+223,Ada (programming language),C
+224,Adobe Acrobat,C
+225,Adobe Photoshop,C
+226,Adoption (software implementation),C
+227,Amiga,C
+228,Amstrad CPC,C
+229,Andrew Grove,C
+230,Android Oreo,C
+231,Animation,C
+232,Apache Cassandra,C
+233,Apple Desktop Bus,C
+234,Apple II,C
+235,Apple II series,C
+236,Arithmetic logic unit,C
+237,Arjun Malhotra (entrepreneur),C
+238,Artificial neural network,C
+239,Association for Computing Machinery,C
+240,Asymmetric multiprocessing,C
+241,Asynchronous circuit,C
+242,Atanasoff–Berry computer,C
+243,Atari ST,C
+244,Avatar (computing),C
+245,BASIC,C
+246,BIOS,C
+247,BMP file format,C
+248,Bell Labs,C
+249,Berkeley Open Infrastructure for Network Computing,C
+250,Blended learning,C
+251,Bloomfield (microprocessor),C
+252,Bonjour (software),C
+253,Booting,C
+254,Brute-force attack,C
+255,Burroughs large systems,C
+256,CUPS,C
+257,C (programming language),C
+258,Celeron,C
+259,Central processing unit,C
+260,Centrino,C
+261,Character encoding,C
+262,Cheetah Mobile,C
+263,Client–server model,C
+264,Code,C
+265,Code injection,C
+266,Code page,C
+267,Commodore VIC-20,C
+268,Common Desktop Environment,C
+269,Common Vulnerability Scoring System,C
+270,Communication protocol,C
+271,Comptometer,C
+272,Computer Usage Company,C
+273,Computer data storage,C
+274,Computer file,C
+275,Computer hardware,C
+276,Computer multitasking,C
+277,Computer network,C
+278,Computer recycling,C
+279,Concurrent computing,C
+280,Constant (computer programming),C
+281,Content Security Policy,C
+282,Copy protection,C
+283,Country code top-level domain,C
+284,Cray X-MP,C
+285,Cyber security standards,C
+286,Cyberattack,C
+287,Cybercrime,C
+288,DECstation,C
+289,DNS root zone,C
+290,DTrace,C
+291,Data,C
+292,Data analysis,C
+293,Data deduplication,C
+294,Database,C
+295,Decimal floating point,C
+296,Digital imaging,C
+297,Digital library,C
+298,Digital literacy,C
+299,Digital media,C
+300,Digital signal,C
+301,Dijkstra's algorithm,C
+302,DivX,C
+303,Dual EC DRBG,C
+304,Dynamic Host Configuration Protocol,C
+305,ECMAScript,C
+306,Electronic Frontier Foundation,C
+307,Email spam,C
+308,ExpressCard,C
+309,File Transfer Protocol,C
+310,File format,C
+311,Flynn's taxonomy,C
+312,Free and open-source software,C
+313,Free software,C
+314,GeForce 900 series,C
+315,Gerald Jay Sussman,C
+316,Google ATAP,C
+317,Google Search,C
+318,Gordon Moore,C
+319,HTML,C
+320,HTTP/2,C
+321,HTTPS,C
+322,Hacker,C
+323,Hardware random number generator,C
+324,Harwell computer,C
+325,Hewlett-Packard,C
+326,History of personal computers,C
+327,History of the floppy disk,C
+328,Home server,C
+329,Human–computer interaction,C
+330,Hypertext Transfer Protocol,C
+331,IBM Personal Computer,C
+332,IEEE 754,C
+333,IEEE 802.11,C
+334,IP address,C
+335,IPad Air,C
+336,IPad Air 2,C
+337,IPad Mini 2,C
+338,IPsec,C
+339,IPv6,C
+340,IRAF,C
+341,ITIL,C
+342,IT energy management,C
+343,IT law,C
+344,IT risk,C
+345,Information privacy,C
+346,Infosys,C
+347,Instant messaging,C
+348,Instruction set architecture,C
+349,Intel 80386,C
+350,Intel 80486,C
+351,Intel 8086,C
+352,Intel High Definition Audio,C
+353,Internationalization and localization,C
+354,Internationalized domain name,C
+355,Internet access,C
+356,Interpreter (computing),C
+357,J. C. R. Licklider,C
+358,Java (programming language),C
+359,"Java Platform, Standard Edition",C
+360,John Backus,C
+361,KHTML,C
+362,Kilobyte,C
+363,LZ77 and LZ78,C
+364,LaTeX,C
+365,Larry Ellison,C
+366,Latin America and Caribbean Network Information Centre,C
+367,LibreSSL,C
+368,Linux kernel,C
+369,Lisp machine,C
+370,Local area network,C
+371,Login,C
+372,MIME,C
+373,MacOS version history,C
+374,Machine code,C
+375,Machine learning,C
+376,Malware,C
+377,Margaret Hamilton (scientist),C
+378,Master boot record,C
+379,Memory address,C
+380,Memory management,C
+381,Memory protection,C
+382,Mersenne Twister,C
+383,Messages (Apple),C
+384,Michael Dell,C
+385,Microsoft Office,C
+386,Microsoft Office 2003,C
+387,Modem,C
+388,Motorola 6800,C
+389,Multi-core processor,C
+390,Multi-touch,C
+391,Music download,C
+392,NP-completeness,C
+393,NP-hardness,C
+394,Natural language processing,C
+395,Nehalem (microarchitecture),C
+396,NetBSD,C
+397,Netbook,C
+398,Network packet,C
+399,Network switch,C
+400,Nomogram,C
+401,Non-standard RAID levels,C
+402,Numerical control,C
