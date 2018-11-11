@@ -2,15 +2,7 @@ from dateutil.parser import parse as dtparse
 import requests
 
 from WikiComponents import Article, WikiAPI, WikiBrowser
-from helper import read_csv, calc_freq, is_bot_user
-
-
-def get_first_query_page(resp: dict) -> dict:
-    pg = resp['query']['pages']
-    if len(pg) != 1:
-        print("[W] len(pg) != 1")
-    k = list(pg.keys())[0]
-    return pg[k]
+from helper import read_csv, calc_freq, is_bot_user, get_first_query_page
 
 
 def get_contributors(article_id):
@@ -82,9 +74,10 @@ def analysis_revision_info(dict_rev_info: dict):
 
     freq_overall = calc_freq(overall_edit_timestamp)
 
+    freq_per_editor = {}
     # edit freq per editor
     for uid, revisions in dict_rev_info.items():
-        dict_rev_info['edit_freq'] = calc_freq([rv['timestamp_parsed'] for rv in revisions])
+        freq_per_editor[uid] = calc_freq([rv['timestamp_parsed'] for rv in revisions])
 
 
 def count_talk_posts(article_id):

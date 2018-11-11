@@ -39,10 +39,18 @@ def read_csv(csv_path: str, handler, contains_header=True):
 
 
 def calc_freq(arr: list):
-    raise NotImplementedError()
-    return 0
+    # raise NotImplementedError()
+    return 0  # fix me
 
 
 def is_bot_user(username, userid):
     # fixme
     return 'bot' in str.lower(username)
+
+
+def get_first_query_page(resp: dict) -> dict:
+    pg = resp['query']['pages']
+    if len(pg) != 1:
+        print("[W] len(pg) != 1")
+    k = list(pg.keys())[0]
+    return pg[k]
