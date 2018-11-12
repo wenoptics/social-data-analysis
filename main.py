@@ -1,3 +1,5 @@
+import json
+
 from dateutil.parser import parse as dtparse
 import requests
 
@@ -10,9 +12,9 @@ def get_contributors(article_id):
     _url = "api.php?action=query&titles={article_id}&prop=contributors"
     resp = WikiAPI.get(_url.format(article_id=article_id))
     first = get_first_query_page(resp)
-    n_contributers_a = first['anoncontributors']
+    n_contributers_a = first.get('anoncontributors')
     n_contributers = len(first['contributors'])
-    return {'anoncontributors': n_contributers_a, 'contributors': n_contributers}
+    return {'anoncontributors': n_contributers_a, 'contributors': first['contributors']}
 
 
 def get_revision(article_id):
@@ -39,7 +41,9 @@ def get_revision(article_id):
         """
         first = get_first_query_page(resp)
         for rv in first['revisions']:
-            uid = rv['userid']
+            uid = rv.get('userid')
+            if not uid:
+                continue
             if uid in revs:
                 revs[uid].append(rv)
             else:
@@ -63,7 +67,7 @@ def analysis_revision_info(dict_rev_info: dict):
     overall_edit_timestamp = []
     overall_edit_nonbot_timestamp = []
     for editor in dict_rev_info.values():
-        is_bot = is_bot_user(editor[0]['user'], editor[0]['userid'])
+        is_bot = is_bot_user(editor[0]['user'], editor[0].get('userid'))
         for rv in editor:
             ts = rv.get('timestamp')
             ts = dtparse(ts).timestamp()
@@ -92,6 +96,9 @@ def num_editor_talk(article_id):
     return resp['editors']
 
 
+dataset = {}
+
+
 def process_article(article: Article):
     print('\n', '-' * 6)
     print('processing "{}"'.format(article.id_))
@@ -113,6 +120,27 @@ def process_article(article: Article):
     etp = num_editor_talk(article.id_)
     print('talk-page editor n=', etp)
 
+    # persistent the data
+    current_data = {
+        'article_id': article.id_,
+        'grade': article.grade,
+        'unique_contributors': uniq_con,
+        'revision_info': rvs,
+        'n_talk_post': ctp,
+        'n_editor_post': etp
+    }
+    dataset[article.id_] = current_data
+
+    if len(dataset) % 10 == 0:
+        save_data()
+
+
+def save_data():
+    save_file = 'data/saved_dataset.json'
+    with open(save_file, 'w') as wfile:
+        wfile.write(json.dumps(dataset))
+    print('file saved to', save_file)
+
 
 if __name__ == '__main__':
     article_list = read_csv("data/articles.csv",
@@ -125,5 +153,10 @@ if __name__ == '__main__':
     print('groupGood: n =', len(groupGood))
     print('groupNSGood: n =', len(groupNSGood))
 
-    [process_article(i) for i in groupGood]
-    [process_article(i) for i in groupNSGood]
+    for i in groupGood:  # groupNSGood:
+        try:
+            process_article(i)
+        except Exception as e:
+            print('[E]', str(e))
+    save_data()
+
