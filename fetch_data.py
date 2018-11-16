@@ -23,6 +23,7 @@ def get_revision(article_id):
     u = _url.format(article_id=article_id)
 
     revs = {}
+    
 
     def proc(resp: dict):
         """
