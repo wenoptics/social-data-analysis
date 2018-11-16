@@ -27,10 +27,25 @@ they are outliers
 supported by the data and which one of the above factors relates most to the quality of the articles?
 
 
-# Todo
+
+## Step 1: Fetch data that we need
+
+As [`fetch_data.ipynb`](fetch_data.ipynb)
+
+### todo
 
  - [x] Total number of unique editors
  - [ ] Number of edits per editors
  - [x] Number of talk-page posts
  - [x] Number of editors posting on talk-pages
  - [ ] Frequency of edits (time between edits)
+
+## Step 2: Do some analysis
+
+As [`analysis.ipynb`](analysis.ipynb)
+
+### todo
+
+
+
+
