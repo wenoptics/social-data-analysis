@@ -40,9 +40,9 @@ As [`fetch_data.ipynb`](fetch_data.ipynb)
  - [x] Number of editors posting on talk-pages
  - [ ] Frequency of edits (time between edits)
 
-## Step 2: Do some analysis
+## Step 2: Explore and analyse the data
 
-As [`analysis.ipynb`](analysis.ipynb)
+As [`analysis_explore.ipynb`](analysis_explore.ipynb) and [`analysis_report.ipynb`](analysis_report.ipynb)
 
 ### todo
 
